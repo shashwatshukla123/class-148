@@ -1,4 +1,5 @@
 # class-148
+# https://sketchfab.com/feed
 there is already some default light setting in A-Frame.
 We can add our own lights to override the default light setting in the scene.
 
