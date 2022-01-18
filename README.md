@@ -1,1 +1,123 @@
 # class-148
+there is already some default light setting in A-Frame.
+We can add our own lights to override the default light setting in the scene.
+
+
+Different types of light can be used based on what we need in the virtual environment.
+
+In A-Frame, there are 5 types of lights available:
+
+1. Ambient Light: This light source spreads lights in every direction evenly over the scene affecting all the entities in the scene.
+
+2. Hemispherical Light: Being similar to the ambient light, this light source also affects all the objects entirely in the scene. In this light, there are two different colors (attribute “color” and “groundColor”), one from the top and one from the bottom.
+
+3. Point Light: This light source is only limited to a point and spreads light in all directions from the point. For example, a bulb or candle. The closer the light is to the object, the more you can see the object.
+
+4. Spot Light: This light source starts from a point and emits light in one direction in the form of a cone like a torch. Spot Light needs a target on which it can fall.
+
+5. Directional Light: This light source is one that is located very far away like a sun, emitting light in a particular direction.
+
+
+type: type of light(ambient/directional etc)
+distance: where the intensity becomes zero that means the light will end there
+decay: the amount of light that starts dim along with the distance
+
+Among all the lights in A-Frame, only Point light, Spot light, and Directional light can cast shadows of the objects present in the scene.
+
+There must be at least one entity in the scene to receive the shadow. Let’s add the circular plane and set the shadow=”receive:true”.
+
+
+In A-Frame only 3 lights, point light, directional light and spot light can cast shadow, 
+
+All the lights have few basic properties:
+type: One of ambient, directional, hemisphere, point, spot.
+color: color of the light intensity: brightness of the light
+
+-------------------
+
+For Ambient Light:
+type:ambient intensity:0.5
+
+-----------
+For Directional Light:
+type: directional
+intensity: 5
+distance: 50 (where the intensity becomes zero, that means the light will end there)
+decay: 2 (amount of light that starts dim along the distance) color:green
+position=”-100 18 20”
+
+------------------------------------------------------
+
+We can set the attribute
+“castShadow:true” in the light
+component to see the shadow.
+----------------
+
+shadow=”cast:true” for the gLTF model also.
+
+-----------
+for light and animal ,we need to add some changes for cast shadow
+
+----------
+There must be at least one entity in the scene to receive the shadow.
+Let’s add the circular plane and set the shadow=”receive:true”.
+Set the attributes position, rotation, radius, color and visible for the circular ground to set its orientation.
+--------------------------------------------------
+
+
+3D models are created via specialized software by 3D artists or 3D modelers
+
+3D models are stored in the form of polygons, for example, a set of triangles, which is called a mesh.
+This information can be stored in the form of vertices, edges or faces depending on the application.
+
+
+o store 3D models, the file formats used are .obj, .fbx, .gltf(or .glb) etc.
+
+We are going to use gLTF 3D models in A-Frame.
+gLTF stands for Graphics Language Transmission Format.
+It is a standard file format for 3D models and scenes.
+
+-----------------------------------------------
+
+Asset Management in A-Frame.
+
+
+A-Frame also has its assets management system, which helps to load all the assets like 3D models, image textures, video textures and audio before rendering anything in the scene.
+
+Assets can be used directly, the way we have been using till now, thus for better 3D experience and games, it is better to preload all the assets.
+
+ <a-assets> tag inside the <a-scene> tag.
+ 
+ n A-Frame assets can be added under <a-assets>
+And Assets can be:
+<a-asset-item> - Miscellaneous assets like 3D models.
+<audio> - Sound files
+<img> - Image textures <video> - Video textures
+
+-----------------------------------------------
+download the gLTF models of a few wild animals for Mike to capture good photographs.
+
+reate a free account on sketchfab.com by using google
+
+We can now use <a-asset-item> under <a-assets>.
+
+id,src are the attributes
+
+for <a-assets>.
+The default timeout is 3 secs.
+The scene waits for 3 secs to load all the assets by default before rendering entities on the screen.After 3 secs it will start showing all the entities and the one which is still not will be displayed after some once they are loaded.
+
+ ----------
+ to use this gLTF model, we have the following ways:
+1. Loading a gLTF model by using the asset that specifies the “src” of gLTF using the “gltf-model” attribute.
+2. Directly using url.
+ 
+3. <a-gltf-model>A-Frame primitive.
+
+
+---------------
+We will use the first way, but you can always explore the rest later.
+
+create an entity tag and uses the same id, gltf-model=”#id”.
+Add the values for position, rotation and scale attributes to set the model orientation
+
